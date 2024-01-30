@@ -13,9 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/spinner_border"
         app:layout_constraintBottom_toTopOf="@+id/logoImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171" />
@@ -32,7 +33,7 @@
         app:srcCompat="@drawable/logo" />
 
     <LinearLayout
-        android:layout_width="330dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
@@ -70,7 +71,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginLayout"
-        android:layout_width="330dp"
+        android:layout_width="0dp"
         android:layout_height="230dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
@@ -155,15 +156,12 @@
 
     <LinearLayout
         android:id="@+id/optionLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/adImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginLayout">
 
@@ -172,9 +170,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right"
             android:text="비밀번호 찾기"
             android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/slash"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slash" />
 
         <TextView
             android:id="@+id/findId"
@@ -185,6 +190,13 @@
             android:text="아이디 찾기"
             android:textSize="10sp" />
 
+        <ImageView
+            android:id="@+id/slash"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slash" />
+
         <TextView
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
@@ -193,6 +205,7 @@
             android:gravity="center"
             android:text="회원가입"
             android:textSize="10sp" />
+
     </LinearLayout>
 
     <ImageView
@@ -208,14 +221,13 @@
 
     <LinearLayout
         android:id="@+id/csLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adImage">
 
@@ -228,6 +240,13 @@
             android:text="이용약관"
             android:textSize="10sp" />
 
+        <ImageView
+            android:id="@+id/slash"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slash" />
+
         <TextView
             android:id="@+id/op2"
             android:layout_width="wrap_content"
@@ -237,6 +256,13 @@
             android:text="개인정보처리방침"
             android:textSize="10sp" />
 
+        <ImageView
+            android:id="@+id/slash"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slash" />
+
         <TextView
             android:id="@+id/op3"
             android:layout_width="wrap_content"
@@ -245,6 +271,13 @@
             android:gravity="center"
             android:text="책임의 한계와 법적고지"
             android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/slash"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/slash" />
 
         <TextView
             android:id="@+id/op4"
@@ -256,27 +289,37 @@
             android:textSize="10sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="88dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/csLayout"
-        app:srcCompat="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/textView5"
+    <LinearLayout
+        android:id="@+id/infoLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Copyright © NAVER Corp. All Rights Reserved"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/csLayout" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/csLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/sLogo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Copyright © NAVER Corp. All Rights Reserved"
+            android:textSize="10sp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
