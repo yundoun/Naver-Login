@@ -1,14 +1,41 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:top="-2dp"
-        >
-        <shape android:shape="rectangle">
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택되었을 때의 스타일 -->
+    <item android:state_focused="true">
+        <layer-list>
             <!-- 배경색 설정 -->
-            <solid android:color="#FFFFFF" />
-            <!-- 테두리 색상 및 두께 설정 -->
-            <stroke
-                android:width="1dp"
-                android:color="#929292" />
-        </shape>
+            <item android:top="-2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFF" />
+                    <!-- 테두리 색상 및 두께 설정 (초록색) -->
+                    <stroke
+                        android:width="1dp"
+                        android:color="#00FF00" />
+                </shape>
+            </item>
+            <!-- 선택(focused) 상태일 때 추가된 테두리 아이템 -->
+            <item android:left="-1dp" android:right="-1dp" android:top="-1dp">
+                <shape android:shape="rectangle">
+                    <!-- 테두리 색상 설정 (초록색) -->
+                    <stroke
+                        android:width="2dp"
+                        android:color="#00FF00" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
-</layer-list>
+    <!-- 선택되지 않았을 때의 스타일 -->
+    <item>
+        <layer-list>
+            <item android:top="-2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFF" />
+                    <!-- 테두리 색상 및 두께 설정 (기존의 회색) -->
+                    <stroke
+                        android:width="1dp"
+                        android:color="#929292" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>
