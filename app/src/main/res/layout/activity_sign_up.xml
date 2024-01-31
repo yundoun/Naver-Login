@@ -7,7 +7,7 @@
     tools:context=".SignUpActivity">
 
     <ImageView
-        android:id="@+id/logo_signUp"
+        android:id="@+id/singUp_logo"
         android:layout_width="91dp"
         android:layout_height="22dp"
         android:layout_marginTop="28dp"
@@ -25,11 +25,11 @@
         android:layout_marginBottom="16dp"
         android:text="실명 인증된 아이디로 가입"
         android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/accountLayout"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/accountLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -47,10 +47,12 @@
             android:id="@+id/et_userId"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="@drawable/account_top_border"
             android:drawableLeft="@drawable/id_icon"
             android:drawablePadding="10dp"
             android:hint="아이디"
             android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
             android:textSize="12sp" />
 
         <!-- 비밀번호 입력 -->
@@ -62,9 +64,10 @@
             android:drawablePadding="10dp"
             android:hint="비밀번호"
             android:inputType="textPassword"
+            android:paddingLeft="20dp"
             android:textSize="12sp" />
 
-        <!-- 이름 입력 -->
+        <!-- 이메일 입력 -->
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
@@ -73,13 +76,14 @@
             android:drawablePadding="10dp"
             android:hint="이메일"
             android:inputType="textPersonName"
+            android:paddingLeft="20dp"
             android:textSize="12sp" />
 
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/userInfoLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -90,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/accountLayout">
 
         <EditText
             android:id="@+id/et_userName"
@@ -100,6 +104,7 @@
             android:drawablePadding="10dp"
             android:hint="이름"
             android:inputType="textPersonName"
+            android:paddingLeft="20dp"
             android:textSize="12sp" />
 
         <EditText
@@ -110,6 +115,7 @@
             android:drawablePadding="10dp"
             android:hint="생년월일 8자리"
             android:inputType="date"
+            android:paddingLeft="20dp"
             android:textSize="12sp" />
 
         <LinearLayout
@@ -125,6 +131,7 @@
                 android:drawableLeft="@drawable/id_icon"
                 android:drawablePadding="10dp"
                 android:hint="통신사 선택"
+                android:paddingLeft="20dp"
                 android:textSize="12sp" />
 
             <Spinner
@@ -175,7 +182,9 @@
             android:drawableLeft="@drawable/id_icon"
             android:drawablePadding="10dp"
             android:hint="휴대전화번호"
-            android:inputType="date" />
+            android:inputType="date"
+            android:paddingLeft="20dp"
+            android:textSize="12sp" />
 
 
         <LinearLayout
@@ -205,7 +214,7 @@
         android:text="인증요청"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/userInfoLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
