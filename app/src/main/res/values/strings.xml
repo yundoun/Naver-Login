@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
+    <string name="main_tabBtn1">ID 로그인</string>
+    <string name="main_tabBtn2">일회용 번호</string>
+    <string name="main_tabBtn3">QR 코드</string>
+    <string name="main_hint_userName">아이디</string>
+    <string name="main_hint_password">비밀번호</string>
+    <string name="main_keepSignCheckBox">로그인 상태 유지</string>
+    <string name="main_ipSwitch">IP 보안</string>
+    <string name="main_loginBtn">로그인</string>
+    <string name="main_findPassword">비밀번호 찾기</string>
+    <string name="main_findId">아이디 찾기</string>
+    <string name="main_signUp">회원가입</string>
+    <string name="main_op1">이용약관</string>
+    <string name="main_op2">개인정보처리방침</string>
+    <string name="main_op3">책임의 한계와 법적고지</string>
+    <string name="main_op4">회원정보 고객센터</string>
+
 </resources>

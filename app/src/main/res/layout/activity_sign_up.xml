@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/logo_signUp"
+        android:layout_width="91dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
+        android:text="실명 인증된 아이디로 가입"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- 아이디 입력 -->
+        <EditText
+            android:id="@+id/et_userId"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
+            android:hint="아이디"
+            android:inputType="textEmailAddress"
+            android:textSize="12sp" />
+
+        <!-- 비밀번호 입력 -->
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/password_icon"
+            android:drawablePadding="10dp"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:textSize="12sp" />
+
+        <!-- 이름 입력 -->
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
+            android:hint="이메일"
+            android:inputType="textPersonName"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/et_userName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
+            android:hint="이름"
+            android:inputType="textPersonName"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/et_userBirth"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
+            android:hint="생년월일 8자리"
+            android:inputType="date"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_agency"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/id_icon"
+                android:drawablePadding="10dp"
+                android:hint="통신사 선택"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남자"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여자"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내국인"
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonForeign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="외국인"
+                android:textSize="12sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
+            android:hint="휴대전화번호"
+            android:inputType="date" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBoxAgreement"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:text="약관 동의"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/spinnerOptions2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="290dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="44dp"
+        android:text="인증요청"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
