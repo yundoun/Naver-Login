@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp" /> <!-- 모서리를 둥글게 -->
+            <solid android:color="#00000000" /> <!-- 배경을 투명하게 -->
+            <stroke android:width="1dp" android:color="#00FF00" /> <!-- 선택된 테두리를 초록색으로 -->
+        </shape>
+    </item>
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <corners
+                android:radius="4dp"
+                /> <!-- 모서리를 둥글게 -->
+            <solid android:color="#00000000" /> <!-- 배경을 투명하게 -->
+            <stroke android:width="1dp" android:color="#000000" /> <!-- 선택되지 않은 테두리를 검정색으로 -->
+        </shape>
+    </item>
+</selector>
