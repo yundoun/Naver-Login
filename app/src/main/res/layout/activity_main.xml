@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/spinner_border"
+        android:background="@drawable/main_spinner"
         app:layout_constraintBottom_toTopOf="@+id/main_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
@@ -30,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/b_logo" />
 
     <LinearLayout
         android:id="@+id/tabBtnLayout"
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="1"
-            android:background="@drawable/tab_btn_selected_border"
+            android:background="@drawable/main_tab_btn_selected"
             android:gravity="center"
             android:text="@string/main_tabBtn1" />
 
@@ -59,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="1"
-            android:background="@drawable/tab_btn_border"
+            android:background="@drawable/main_tab_btn"
             android:gravity="center"
             android:text="@string/main_tabBtn2" />
 
@@ -68,7 +68,7 @@
             android:layout_width="0dp"
             android:layout_height="35dp"
             android:layout_weight="1"
-            android:background="@drawable/tab_btn_border"
+            android:background="@drawable/main_tab_btn"
             android:gravity="center"
             android:text="@string/main_tabBtn3" />
     </LinearLayout>
@@ -80,7 +80,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="40dp"
-        android:background="@drawable/login_border"
+        android:background="@drawable/main_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,8 +94,8 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="25dp"
-            android:background="@drawable/edit_text_top"
-            android:drawableLeft="@drawable/id_icon"
+            android:background="@drawable/main_edit_text_top"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="@string/main_hint_userName"
             android:inputType="textEmailAddress"
@@ -112,8 +112,8 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            android:background="@drawable/edit_text_bottom"
-            android:drawableLeft="@drawable/password_icon"
+            android:background="@drawable/main_edit_text_bottom"
+            android:drawableLeft="@drawable/a_password"
             android:drawablePadding="10dp"
             android:hint="@string/main_hint_password"
             android:inputType="textPassword"
@@ -158,7 +158,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/login_btn"
+            android:background="@drawable/main_login_btn"
             android:text="@string/main_loginBtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -192,7 +192,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/slash" />
+            app:srcCompat="@drawable/b_slash" />
 
         <TextView
             android:id="@+id/findId"
@@ -208,7 +208,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/slash" />
+            app:srcCompat="@drawable/b_slash" />
 
         <TextView
             android:id="@+id/signUp"
@@ -230,7 +230,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionLayout"
-        app:srcCompat="@drawable/ad" />
+        app:srcCompat="@drawable/b_ad" />
 
     <LinearLayout
         android:id="@+id/csLayout"
@@ -258,7 +258,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/slash" />
+            app:srcCompat="@drawable/b_slash" />
 
         <TextView
             android:id="@+id/op2"
@@ -274,7 +274,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/slash" />
+            app:srcCompat="@drawable/b_slash" />
 
         <TextView
             android:id="@+id/op3"
@@ -290,7 +290,7 @@
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/slash" />
+            app:srcCompat="@drawable/b_slash" />
 
         <TextView
             android:id="@+id/op4"
@@ -319,7 +319,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/b_logo" />
 
         <TextView
             android:id="@+id/textView5"

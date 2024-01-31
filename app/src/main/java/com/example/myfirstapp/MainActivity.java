@@ -27,8 +27,8 @@ public class MainActivity extends IconBaseActivity {
         userName = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
         spinner = findViewById(R.id.spinner);
-        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.password_icon);
+        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
+        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
 
         // 로그인 아이콘
         setIconSize(userName, idIcon,20);

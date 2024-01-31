@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/b_logo" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -47,8 +47,8 @@
             android:id="@+id/et_userId"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/account_top_border"
-            android:drawableLeft="@drawable/id_icon"
+            android:background="@drawable/sign_up_layout_top"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="아이디"
             android:inputType="textEmailAddress"
@@ -60,7 +60,8 @@
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:drawableLeft="@drawable/password_icon"
+            android:background="@drawable/sign_up_layout_middle"
+            android:drawableLeft="@drawable/a_password"
             android:drawablePadding="10dp"
             android:hint="비밀번호"
             android:inputType="textPassword"
@@ -72,7 +73,8 @@
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:drawableLeft="@drawable/id_icon"
+            android:background="@drawable/sign_up_layout_bottom"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="이메일"
             android:inputType="textPersonName"
@@ -100,7 +102,8 @@
             android:id="@+id/et_userName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:drawableLeft="@drawable/id_icon"
+            android:background="@drawable/sign_up_layout_top"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="이름"
             android:inputType="textPersonName"
@@ -111,7 +114,8 @@
             android:id="@+id/et_userBirth"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:drawableLeft="@drawable/id_icon"
+            android:background="@drawable/sign_up_layout_middle"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="생년월일 8자리"
             android:inputType="date"
@@ -128,9 +132,13 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/id_icon"
+                android:background="@drawable/sign_up_layout_bottom"
+                android:drawableLeft="@drawable/a_id"
                 android:drawablePadding="10dp"
                 android:hint="통신사 선택"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
                 android:paddingLeft="20dp"
                 android:textSize="12sp" />
 
@@ -138,6 +146,7 @@
                 android:id="@+id/spinnerOptions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
         </LinearLayout>
 
 
@@ -179,7 +188,7 @@
             android:id="@+id/et_phone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:drawableLeft="@drawable/id_icon"
+            android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="휴대전화번호"
             android:inputType="date"

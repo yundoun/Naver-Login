@@ -1,19 +1,19 @@
 package com.example.myfirstapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class SignUpActivity extends IconBaseActivity  {
+import androidx.core.content.ContextCompat;
+
+
+public class SignUpActivity extends IconBaseActivity {
     EditText etAgency;
     Spinner spinnerOptions;
 
-    EditText id, password, email, userName, birth, agency, phone;
+    EditText agency;
+    EditText id, password, email, userName, birth, phone;
     Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, agencyIcon, phoneIcon;
 
     @Override
@@ -21,15 +21,6 @@ public class SignUpActivity extends IconBaseActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-//        etAgency = findViewById(R.id.et_agency);
-//        spinnerOptions = findViewById(R.id.spinnerOptions);
-//
-//        etAgency.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                spinnerOptions.performClick();
-//            }
-//        });
 
         id = (EditText) findViewById(R.id.et_userId);
         password = (EditText) findViewById(R.id.et_password);
@@ -40,22 +31,22 @@ public class SignUpActivity extends IconBaseActivity  {
         phone = (EditText) findViewById(R.id.et_phone);
 
 
-        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        emailIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        userNameIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        birthIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        agencyIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
-        phoneIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.id_icon);
+        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
+        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
+        emailIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_email);
+        userNameIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
+        birthIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_birth);
+        agencyIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_agency);
+        phoneIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_phone);
 
 
-        setIconSize(id,idIcon,20);
-        setIconSize(password,passwordIcon,20);
-        setIconSize(email,emailIcon,20);
-        setIconSize(userName,userNameIcon,20);
-        setIconSize(birth,birthIcon,20);
-        setIconSize(agency,agencyIcon,20);
-        setIconSize(phone,phoneIcon,20);
+        setIconSize(id, idIcon, 20);
+        setIconSize(password, passwordIcon, 20);
+        setIconSize(email, emailIcon, 20);
+        setIconSize(userName, userNameIcon, 20);
+        setIconSize(birth, birthIcon, 20);
+        setIconSize(agency, agencyIcon, 20);
+        setIconSize(phone, phoneIcon, 20);
 
 
     }
