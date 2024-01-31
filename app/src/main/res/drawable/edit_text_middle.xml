@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/>
+    <!-- 중간 EditText에는 테두리가 없으므로 stroke를 정의하지 않습니다. -->
+</shape>

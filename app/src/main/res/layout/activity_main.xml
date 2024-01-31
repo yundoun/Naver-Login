@@ -11,12 +11,12 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/spinner_border"
         app:layout_constraintBottom_toTopOf="@+id/logoImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171" />
@@ -25,14 +25,15 @@
         android:id="@+id/logoImage"
         android:layout_width="163dp"
         android:layout_height="30dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:srcCompat="@drawable/logo" />
 
     <LinearLayout
+        android:id="@+id/tabBtnLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -44,28 +45,31 @@
         app:layout_constraintTop_toBottomOf="@+id/logoImage"
         app:layout_constraintVertical_bias="1.0">
 
-        <android.widget.Button
+        <android.widget.TextView
             android:id="@+id/tabBtn1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:background="@drawable/tab_btn_border"
+            android:gravity="center"
             android:text="ID 로그인" />
 
-        <android.widget.Button
+        <android.widget.TextView
             android:id="@+id/tabBtn2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:background="@drawable/tab_btn_border"
+            android:gravity="center"
             android:text="일회용 번호" />
 
-        <android.widget.Button
+        <android.widget.TextView
             android:id="@+id/tabBtn3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:background="@drawable/tab_btn_border"
+            android:gravity="center"
             android:text="QR코드" />
     </LinearLayout>
 
@@ -74,13 +78,14 @@
         android:layout_width="0dp"
         android:layout_height="230dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/login_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImage">
+
 
         <EditText
             android:id="@+id/username"
@@ -89,8 +94,12 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_top"
+            android:drawableLeft="@drawable/id_icon"
+            android:drawablePadding="10dp"
             android:hint="아이디"
             android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/loginLayout"
             app:layout_constraintHorizontal_bias="0.0"
@@ -103,8 +112,12 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:background="@drawable/edit_text_bottom"
+            android:drawableLeft="@drawable/password_icon"
+            android:drawablePadding="10dp"
             android:hint="비밀번호"
             android:inputType="textPassword"
+            android:paddingLeft="20dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -212,7 +225,7 @@
         android:id="@+id/adImage"
         android:layout_width="270dp"
         android:layout_height="82dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -224,7 +237,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
