@@ -17,16 +17,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/b_logo" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <TextView
+        android:id="@+id/tv_realName"
         android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="5dp"
-        android:text="실명 인증된 아이디로 가입"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/accountLayout"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_height="25dp"
+        android:layout_marginStart="192dp"
+        android:gravity="center"
+        android:text=" 실명 인증된 아이디로 가입"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <CheckBox
+        android:id="@+id/cb_realName"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/sign_up_realname_checkbox"
+        android:button="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_realName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
 
     <LinearLayout
         android:id="@+id/accountLayout"
@@ -133,11 +147,10 @@
                 android:id="@+id/iv_agency"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/a_agency"
-                android:layout_marginStart="15dp"
                 android:layout_gravity="center"
-                />
+                android:layout_marginStart="15dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/a_agency" />
 
             <TextView
                 android:id="@+id/tv_agency"

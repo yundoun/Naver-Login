@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.PopupWindow;
@@ -23,7 +24,9 @@ import java.util.List;
 public class SignUpActivity extends IconBaseActivity {
 
     EditText id, password, email, userName, birth, phone;
-    Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, agencyIcon, phoneIcon;
+    Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, phoneIcon;
+    TextView tvRealName, tv_agency;
+    CheckBox cbRealName;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -31,13 +34,15 @@ public class SignUpActivity extends IconBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-
         id = (EditText) findViewById(R.id.et_userId);
         password = (EditText) findViewById(R.id.et_password);
         email = (EditText) findViewById(R.id.et_email);
         userName = (EditText) findViewById(R.id.et_userName);
         birth = (EditText) findViewById(R.id.et_userBirth);
         phone = (EditText) findViewById(R.id.et_phone);
+        tv_agency = findViewById(R.id.tv_agency);
+        tvRealName = findViewById(R.id.tv_realName);
+        cbRealName = findViewById(R.id.cb_realName) ;
 
         idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
         passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
@@ -46,7 +51,6 @@ public class SignUpActivity extends IconBaseActivity {
         birthIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_birth);
         phoneIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_phone);
 
-
         setIconSize(id, idIcon, 20);
         setIconSize(password, passwordIcon, 20);
         setIconSize(email, emailIcon, 20);
@@ -54,8 +58,14 @@ public class SignUpActivity extends IconBaseActivity {
         setIconSize(birth, birthIcon, 20);
         setIconSize(phone, phoneIcon, 20);
 
+        tvRealName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 체크박스의 현재 체크 상태를 반전시킵니다.
+                cbRealName.setChecked(!cbRealName.isChecked());
+            }
+        });
 
-        TextView spinnerReplacement = findViewById(R.id.tv_agency);
 
         List<CharSequence> items = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.agency_items)));
         items.add("통신사 선택");
@@ -88,12 +98,12 @@ public class SignUpActivity extends IconBaseActivity {
 
         gridView.setOnItemClickListener((parent, view, position, id) -> {
             CharSequence selectedItem = adapter.getItem(position);
-            spinnerReplacement.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
+            tv_agency.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
             popupWindow.dismiss(); // 팝업 닫기
         });
 
         // TextView 클릭 시 PopupWindow 표시
-        spinnerReplacement.setOnClickListener(v -> popupWindow.showAsDropDown(spinnerReplacement));
+        tv_agency.setOnClickListener(v -> popupWindow.showAsDropDown(tv_agency));
 
 
     }
