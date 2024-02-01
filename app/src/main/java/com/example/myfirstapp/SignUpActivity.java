@@ -1,21 +1,29 @@
 package com.example.myfirstapp;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SignUpActivity extends IconBaseActivity {
-    EditText etAgency;
-    Spinner spinnerOptions;
 
-    EditText agency;
     EditText id, password, email, userName, birth, phone;
     Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, agencyIcon, phoneIcon;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +35,13 @@ public class SignUpActivity extends IconBaseActivity {
         email = (EditText) findViewById(R.id.et_email);
         userName = (EditText) findViewById(R.id.et_userName);
         birth = (EditText) findViewById(R.id.et_userBirth);
-        agency = (EditText) findViewById(R.id.et_agency);
         phone = (EditText) findViewById(R.id.et_phone);
-
 
         idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
         passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
         emailIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_email);
         userNameIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
         birthIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_birth);
-        agencyIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_agency);
         phoneIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_phone);
 
 
@@ -45,8 +50,14 @@ public class SignUpActivity extends IconBaseActivity {
         setIconSize(email, emailIcon, 20);
         setIconSize(userName, userNameIcon, 20);
         setIconSize(birth, birthIcon, 20);
-        setIconSize(agency, agencyIcon, 20);
         setIconSize(phone, phoneIcon, 20);
+
+        Spinner spinner = (Spinner) findViewById(R.id.sp_agency);
+        ArrayAdapter<CharSequence>adapter = ArrayAdapter.createFromResource(this,
+                R.array.agency_items, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
 
     }
