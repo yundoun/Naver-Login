@@ -177,7 +177,7 @@
 
                 <RadioButton
                     android:id="@+id/rd_male"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/sign_up_radio_layout"
                     android:button="@null"
@@ -188,7 +188,7 @@
 
                 <RadioButton
                     android:id="@+id/rd_female"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/sign_up_radio_layout"
                     android:button="@null"
@@ -210,18 +210,18 @@
 
                 <RadioButton
                     android:id="@+id/rd_local"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/sign_up_radio_layout"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="내부인"
+                    android:text="내국인"
                     android:textColor="@drawable/sign_up_radio_text"
                     android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/rd_foreign"
-                    android:layout_width="wrap_content"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/sign_up_radio_layout"
                     android:button="@null"
@@ -268,10 +268,12 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
+    <android.widget.Button
+        android:id="@+id/btn_requst"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/sign_up_request_btn"
         android:text="인증요청"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
