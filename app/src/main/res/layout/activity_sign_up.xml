@@ -131,9 +131,13 @@
 
             <ImageView
                 android:id="@+id/iv_agency"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:src="@drawable/a_agency" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/a_agency"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center"
+                />
 
             <Spinner
                 android:id="@+id/sp_agency"
