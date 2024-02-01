@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.PopupWindow;
@@ -27,6 +28,7 @@ public class SignUpActivity extends IconBaseActivity {
     Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, phoneIcon;
     TextView tvRealName, tv_agency;
     CheckBox cbRealName;
+    View agencyLayout;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,6 +45,7 @@ public class SignUpActivity extends IconBaseActivity {
         tv_agency = findViewById(R.id.tv_agency);
         tvRealName = findViewById(R.id.tv_realName);
         cbRealName = findViewById(R.id.cb_realName) ;
+        agencyLayout = findViewById(R.id.agencyLayout);
 
         idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
         passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
@@ -105,6 +108,18 @@ public class SignUpActivity extends IconBaseActivity {
         // TextView 클릭 시 PopupWindow 표시
         tv_agency.setOnClickListener(v -> popupWindow.showAsDropDown(tv_agency));
 
+        cbRealName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // 체크박스가 선택된 경우
+                    agencyLayout.setVisibility(View.VISIBLE);
+                } else {
+                    // 체크박스가 선택되지 않은 경우
+                    agencyLayout.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 }
