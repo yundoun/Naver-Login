@@ -87,6 +87,8 @@
         app:layout_constraintTop_toBottomOf="@+id/main_logo">
 
 
+
+
         <EditText
             android:id="@+id/userName"
             android:layout_width="0dp"
@@ -94,7 +96,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="25dp"
-            android:background="@drawable/main_edit_text_top"
+            android:background="@drawable/main_layout_top"
             android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
             android:hint="@string/main_hint_userName"
@@ -112,7 +114,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            android:background="@drawable/main_edit_text_bottom"
+            android:background="@drawable/main_layout_bottom"
             android:drawableLeft="@drawable/a_password"
             android:drawablePadding="10dp"
             android:hint="@string/main_hint_password"
@@ -126,15 +128,17 @@
 
 
         <CheckBox
-            android:id="@+id/keepSignCheckBox"
-            android:layout_width="144dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/main_keepSignCheckBox"
+            android:id="@+id/cb_longinState"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="24dp"
+
+            android:layout_marginTop="12dp"
+            android:background="@drawable/main_state_checkbox"
+            android:button="@null"
             android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/ipSwitch"
+            app:layout_constraintEnd_toStartOf="@+id/tv_loginState"
+            app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
 
@@ -142,13 +146,11 @@
             android:id="@+id/ipSwitch"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="25dp"
             android:text="@string/main_ipSwitch"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/keepSignCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <android.widget.Button
@@ -163,6 +165,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_loginState"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="100dp"
+            android:gravity="center"
+            android:text="@string/main_keepSignCheckBox"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/ipSwitch"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/keepSignCheckBox"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

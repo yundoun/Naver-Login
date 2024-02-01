@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,10 +14,11 @@ import androidx.core.content.ContextCompat;
 
 public class MainActivity extends IconBaseActivity {
     String[] items = {"한국어", "english", "中文"}; // 스피너 아이템
-    TextView signUpTextView;
+    TextView signUpTextView, tvLoginState;
     Spinner spinner;
     EditText userName, password;
     Drawable idIcon, passwordIcon;
+    CheckBox cbLoginState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class MainActivity extends IconBaseActivity {
         spinner = findViewById(R.id.spinner);
         idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
         passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
+        cbLoginState = findViewById(R.id.cb_longinState);
+        tvLoginState = findViewById(R.id.tv_loginState);
 
         // 로그인 아이콘
         setIconSize(userName, idIcon,20);
@@ -44,6 +48,13 @@ public class MainActivity extends IconBaseActivity {
         spinner.setAdapter(adapter);
         spinner.setSelection(0); // 기본값 한국어
 
+        tvLoginState.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 체크박스의 현재 체크 상태를 반전시킵니다.
+                cbLoginState.setChecked(!cbLoginState.isChecked());
+            }
+        });
 
         // 회원가입 창 전환
         signUpTextView.setOnClickListener(new View.OnClickListener() {
