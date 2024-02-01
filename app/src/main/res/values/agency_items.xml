@@ -2,8 +2,10 @@
 <resources>
     <string-array name="agency_items">
         <item>SKT</item>
+        <item>SKT 알뜰폰</item>
         <item>KT</item>
-        <item>LGU+</item>
-        <item>알뜰폰</item>
+        <item>KT 알뜰폰</item>
+        <item>LG U+</item>
+        <item>LG U+ 알뜰폰</item>
     </string-array>
 </resources>

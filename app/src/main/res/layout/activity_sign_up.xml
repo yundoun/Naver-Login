@@ -139,9 +139,19 @@
                 android:layout_gravity="center"
                 />
 
+            <TextView
+                android:id="@+id/tv_agency"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="통신사 선택" />
+
             <Spinner
                 android:id="@+id/sp_agency"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp" />
 
         </LinearLayout>

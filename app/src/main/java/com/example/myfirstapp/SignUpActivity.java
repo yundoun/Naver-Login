@@ -1,19 +1,20 @@
 package com.example.myfirstapp;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.GridView;
+import android.widget.ListPopupWindow;
+import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
@@ -25,7 +26,9 @@ public class SignUpActivity extends IconBaseActivity {
 
     EditText id, password, email, userName, birth, phone;
     Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, agencyIcon, phoneIcon;
-
+    public int dpToPx(int dp) {
+        return (int) (dp * getResources().getDisplayMetrics().density);
+    }
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,35 +58,49 @@ public class SignUpActivity extends IconBaseActivity {
         setIconSize(birth, birthIcon, 20);
         setIconSize(phone, phoneIcon, 20);
 
-        Spinner spinner = (Spinner) findViewById(R.id.sp_agency);
+
+        TextView spinnerReplacement = findViewById(R.id.tv_agency);
+
         List<CharSequence> items = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.agency_items)));
-        items.add("통신사 선택"); // 리스트의 마지막에 "통신사 선택" 추가
+        items.add("통신사 선택");
 
-        System.out.println(items);
+        // GridView를 설정하고 어댑터를 붙입니다.
+        GridView gridView = new GridView(this);
+        // 가로 세로 간격 설정
+        gridView.setHorizontalSpacing(dpToPx(2));
+        gridView.setVerticalSpacing(dpToPx(2));
+        gridView.setNumColumns(2); // 2열로 설정
 
-        CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        // 스피너 초기 선택을 "통신사 선택"으로 설정
-        spinner.setSelection(adapter.getCount());
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.sign_up_custom_grid, R.id.text, items) {
+            @NonNull
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position < adapter.getCount()) {
-                    adapter.setSelectedPosition(position);
-                }
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                // 추가 조건
+                return view;
             }
+        };
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                adapter.setSelectedPosition(-1);
-            }
+        // 마지막 아이템인 "통신사 선택"을 제외하고 어댑터를 설정합니다.
+        items.remove(items.size() - 1); // 마지막 아이템 제거
+        gridView.setAdapter(adapter);
+
+        // PopupWindow 준비
+        PopupWindow popupWindow = new PopupWindow(this);
+        popupWindow.setContentView(gridView);
+        popupWindow.setWidth(550);
+        popupWindow.setHeight(ListPopupWindow.WRAP_CONTENT);
+        popupWindow.setFocusable(true); // 팝업 외부 클릭시 닫히게 설정
+        popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.sign_up_popup_background));
+
+        gridView.setOnItemClickListener((parent, view, position, id) -> {
+            CharSequence selectedItem = adapter.getItem(position);
+            spinnerReplacement.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
+            popupWindow.dismiss(); // 팝업 닫기
         });
 
-
-
+        // TextView 클릭 시 PopupWindow 표시
+        spinnerReplacement.setOnClickListener(v -> popupWindow.showAsDropDown(spinnerReplacement));
 
 
     }
