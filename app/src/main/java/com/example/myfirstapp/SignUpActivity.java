@@ -26,9 +26,6 @@ public class SignUpActivity extends IconBaseActivity {
 
     EditText id, password, email, userName, birth, phone;
     Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, agencyIcon, phoneIcon;
-    public int dpToPx(int dp) {
-        return (int) (dp * getResources().getDisplayMetrics().density);
-    }
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +63,6 @@ public class SignUpActivity extends IconBaseActivity {
 
         // GridView를 설정하고 어댑터를 붙입니다.
         GridView gridView = new GridView(this);
-        // 가로 세로 간격 설정
-        gridView.setHorizontalSpacing(dpToPx(2));
-        gridView.setVerticalSpacing(dpToPx(2));
         gridView.setNumColumns(2); // 2열로 설정
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.sign_up_custom_grid, R.id.text, items) {
@@ -89,7 +83,7 @@ public class SignUpActivity extends IconBaseActivity {
         PopupWindow popupWindow = new PopupWindow(this);
         popupWindow.setContentView(gridView);
         popupWindow.setWidth(550);
-        popupWindow.setHeight(ListPopupWindow.WRAP_CONTENT);
+        popupWindow.setHeight(200);
         popupWindow.setFocusable(true); // 팝업 외부 클릭시 닫히게 설정
         popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.sign_up_popup_background));
 

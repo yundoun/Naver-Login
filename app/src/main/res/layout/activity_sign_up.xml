@@ -76,7 +76,7 @@
             android:background="@drawable/sign_up_layout_bottom"
             android:drawableLeft="@drawable/a_id"
             android:drawablePadding="10dp"
-            android:hint="이메일"
+            android:hint="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)"
             android:inputType="textPersonName"
             android:paddingLeft="20dp"
             android:textSize="12sp" />
