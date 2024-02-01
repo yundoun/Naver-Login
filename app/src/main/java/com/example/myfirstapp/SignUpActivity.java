@@ -1,6 +1,7 @@
 package com.example.myfirstapp;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,8 @@ public class SignUpActivity extends IconBaseActivity {
     CheckBox cbRealName;
     View agencyLayout;
 
+    ArrayAdapter<CharSequence> adapter;
+    PopupWindow popupWindow;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,28 +74,39 @@ public class SignUpActivity extends IconBaseActivity {
 
 
         List<CharSequence> items = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.agency_items)));
-        items.add("통신사 선택");
 
         // GridView를 설정하고 어댑터를 붙입니다.
         GridView gridView = new GridView(this);
         gridView.setNumColumns(2); // 2열로 설정
 
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.sign_up_custom_grid, R.id.text, items) {
+       adapter = new ArrayAdapter<CharSequence>(this, R.layout.sign_up_custom_grid, R.id.text, items) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                // 추가 조건
+
+                TextView textView = view.findViewById(R.id.text);
+
+                // 아이템 클릭 시 텍스트 색상을 검정색으로 변경합니다.
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        textView.setTextColor(Color.BLACK); // 검정색으로 변경
+                        CharSequence selectedItem = adapter.getItem(position);
+                        tv_agency.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
+                        popupWindow.dismiss(); // 팝업 닫기
+                    }
+                });
+
+
                 return view;
             }
         };
 
-        // 마지막 아이템인 "통신사 선택"을 제외하고 어댑터를 설정합니다.
-        items.remove(items.size() - 1); // 마지막 아이템 제거
         gridView.setAdapter(adapter);
 
         // PopupWindow 준비
-        PopupWindow popupWindow = new PopupWindow(this);
+        popupWindow = new PopupWindow(this);
         popupWindow.setContentView(gridView);
         popupWindow.setWidth(550);
         popupWindow.setHeight(200);

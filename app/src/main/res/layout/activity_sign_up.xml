@@ -161,7 +161,8 @@
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="통신사 선택" />
+                android:text="통신사 선택"
+                android:textColor="#929292"/>
 
             <Spinner
                 android:id="@+id/sp_agency"
