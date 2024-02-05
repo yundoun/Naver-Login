@@ -1,0 +1,82 @@
+<resources>
+    <string-array name="countries_array">
+        <item>한국 (82)</item>
+        <item>코스타리카 (506)</item>
+        <item>코트디부아르 (225)</item>
+        <item>크로아티아 (385)</item>
+        <item>쿠바 (53)</item>
+        <item>키프로스 (357)</item>
+        <item>체코 공화국 (420)</item>
+        <item>덴마크 (45)</item>
+        <item>지부티 (253)</item>
+        <item>도미니카 (1)</item>
+        <item>도미니카 공화국 (1)</item>
+        <item>동티모르 (670)</item>
+        <item>에콰도르 (593)</item>
+        <item>이집트 (20)</item>
+        <item>엘살바도르 (503)</item>
+        <item>적도 기니 (240)</item>
+        <item>에리트레아 (291)</item>
+        <item>에스토니아 (372)</item>
+        <item>에티오피아 (251)</item>
+        <item>포클랜드 제도 (500)</item>
+        <item>페로 제도 (298)</item>
+        <item>피지 (679)</item>
+        <item>핀란드 (358)</item>
+        <item>프랑스 (33)</item>
+        <item>프렌치 기아나 (594)</item>
+        <item>프렌치 폴리네시아 (689)</item>
+        <item>프렌치 남부 및 남극 지역 (33)</item>
+        <item>가봉 (241)</item>
+        <item>감비아 (220)</item>
+        <item>조지아 (995)</item>
+        <item>독일 (49)</item>
+        <item>가나 (233)</item>
+        <item>지브롤터 (350)</item>
+        <item>그리스 (30)</item>
+        <item>그린란드 (299)</item>
+        <item>그레나다 (1)</item>
+        <item>과들루프 (590)</item>
+        <item>괌 (1)</item>
+        <item>과테말라 (502)</item>
+        <item>건지 섬 (44)</item>
+        <item>기니 (224)</item>
+        <item>기니비사우 (245)</item>
+        <item>가이아나 (592)</item>
+        <item>아이티 (509)</item>
+        <item>허드 맥도널드 제도 (61)</item>
+        <item>온두라스 (504)</item>
+        <item>홍콩 (852)</item>
+        <item>헝가리 (36)</item>
+        <item>아이슬란드 (354)</item>
+        <item>인도 (91)</item>
+        <item>인도네시아 (62)</item>
+        <item>이란 (98)</item>
+        <item>이라크 (964)</item>
+        <item>아일랜드 (353)</item>
+        <item>맨 섬 (44)</item>
+        <item>이스라엘 (972)</item>
+        <item>이탈리아 (39)</item>
+        <item>자메이카 (1)</item>
+        <item>일본 (81)</item>
+        <item>저지 섬 (44)</item>
+        <item>요르단 (962)</item>
+        <item>카자흐스탄 (7)</item>
+        <item>케냐 (254)</item>
+        <item>키리바시 (686)</item>
+        <item>쿠웨이트 (965)</item>
+        <item>키르기스스탄 (996)</item>
+        <item>라오스 (856)</item>
+        <item>라트비아 (371)</item>
+        <item>레바논 (961)</item>
+        <item>레소토 (266)</item>
+        <item>라이베리아 (231)</item>
+        <item>리비아 (218)</item>
+        <item>리히텐슈타인 (423)</item>
+        <item>리투아니아 (370)</item>
+        <item>룩셈부르크 (352)</item>
+        <item>마카오 (853)</item>
+        <item>마케도니아 (389)</item>
+        <item>마다가스카르 (261)</item>
+    </string-array>
+</resources>

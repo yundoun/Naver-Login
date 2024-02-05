@@ -1,61 +1,75 @@
 package com.example.myfirstapp;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.PopupWindow;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class SignUpActivity extends IconBaseActivity {
 
-    EditText id, password, email, userName, birth, phone;
-    Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, phoneIcon;
-    TextView tvRealName, tv_agency;
-    CheckBox cbRealName;
-    View agencyLayout;
+    private EditText id, password, email, userName, birth, phone;
+    private Drawable idIcon, passwordIcon, emailIcon, userNameIcon, birthIcon, phoneIcon;
+    private TextView tvRealName, tvAgency;
+    private CheckBox cbRealName;
+    private View agencyLayout, countryNumberLayout;
+    private ArrayAdapter<CharSequence> agencyAdapter;
+    private ArrayAdapter<String> countryAdapter;
+    private PopupWindow popupWindow;
+    private Spinner countrySpinner;
+    private String[] countries;
 
-    ArrayAdapter<CharSequence> adapter;
-    PopupWindow popupWindow;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        id = (EditText) findViewById(R.id.et_userId);
-        password = (EditText) findViewById(R.id.et_password);
-        email = (EditText) findViewById(R.id.et_email);
-        userName = (EditText) findViewById(R.id.et_userName);
-        birth = (EditText) findViewById(R.id.et_userBirth);
-        phone = (EditText) findViewById(R.id.et_phone);
-        tv_agency = findViewById(R.id.tv_agency);
-        tvRealName = findViewById(R.id.tv_realName);
-        cbRealName = findViewById(R.id.cb_realName) ;
-        agencyLayout = findViewById(R.id.agencyLayout);
+        initializeViews();
+        initializeIcons();
+        setupViewListeners();
+        setupAdapters();
 
-        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
-        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
-        emailIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_email);
-        userNameIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
-        birthIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_birth);
-        phoneIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_phone);
+        // 초기 가시성 설정
+        updateViewVisibility(cbRealName.isChecked());
+
+    }
+
+    private void initializeViews() { // 뷰 초기화 메소드 분리 1
+        id = findViewById(R.id.et_userId);
+        password = findViewById(R.id.et_password);
+        email = findViewById(R.id.et_email);
+        userName = findViewById(R.id.et_userName);
+        birth = findViewById(R.id.et_userBirth);
+        phone = findViewById(R.id.et_phone);
+        tvAgency = findViewById(R.id.tv_agency);
+        tvRealName = findViewById(R.id.tv_realName);
+        cbRealName = findViewById(R.id.cb_realName);
+        agencyLayout = findViewById(R.id.agencyLayout);
+        countryNumberLayout = findViewById(R.id.countryNumberLayout);
+        countrySpinner = findViewById(R.id.countryNumberSpinner);
+    }
+
+    private void initializeIcons() { // 뷰 초기화 메소드 분리 2
+        //액티비티의 컨텍스트가 이미 Context.Compat.getDrawable 함수에 적합하기 때문에 this 사용
+        idIcon = ContextCompat.getDrawable(this, R.drawable.a_id);
+        passwordIcon = ContextCompat.getDrawable(this, R.drawable.a_password);
+        emailIcon = ContextCompat.getDrawable(this, R.drawable.a_email);
+        userNameIcon = ContextCompat.getDrawable(this, R.drawable.a_id);
+        birthIcon = ContextCompat.getDrawable(this, R.drawable.a_birth);
+        phoneIcon = ContextCompat.getDrawable(this, R.drawable.a_phone);
 
         setIconSize(id, idIcon, 20);
         setIconSize(password, passwordIcon, 20);
@@ -63,77 +77,48 @@ public class SignUpActivity extends IconBaseActivity {
         setIconSize(userName, userNameIcon, 20);
         setIconSize(birth, birthIcon, 20);
         setIconSize(phone, phoneIcon, 20);
+    }
 
-        tvRealName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 체크박스의 현재 체크 상태를 반전시킵니다.
-                cbRealName.setChecked(!cbRealName.isChecked());
-            }
-        });
+    private void setupViewListeners() { // 뷰 리스너 설정
+        // buttonView는 체크 상태 변경 이벤트가 발생한 CheckBox의 인스턴스를 나타낸다. 이 경우 리스너가 등록된 View 객체, 즉 CheckBox를 참조
+        cbRealName.setOnCheckedChangeListener((buttonView, isChecked) -> updateViewVisibility(isChecked));
+        tvRealName.setOnClickListener(v -> cbRealName.setChecked(!cbRealName.isChecked())); // 텍스트뷰 클릭 리스너 : 체크박스 상태 반전
+        tvAgency.setOnClickListener(v -> popupWindow.showAsDropDown(tvAgency)); // 팝업 윈도우 표시
+    }
 
+    private void setupAdapters() { // 어댑터 설정
+        // 어댑터 초기화
+        List<CharSequence> agencyItems = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.agency_items)));
+        agencyAdapter = new ArrayAdapter<>(this, R.layout.sign_up_custom_grid, R.id.text, agencyItems);
+        // GridView 설정 및 초기화
+        setupGridView(agencyAdapter);
 
-        List<CharSequence> items = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.agency_items)));
+        // 국가 번호 가져오기
+        countries = getResources().getStringArray(R.array.countries_array);
+        countryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, countries);
+        countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countrySpinner.setAdapter(countryAdapter);
+    }
 
-        // GridView를 설정하고 어댑터를 붙입니다.
+    private void setupGridView(ArrayAdapter<CharSequence> adapter) { // GiredView 설정 및 PopupWindow 초기화
         GridView gridView = new GridView(this);
-        gridView.setNumColumns(2); // 2열로 설정
-
-       adapter = new ArrayAdapter<CharSequence>(this, R.layout.sign_up_custom_grid, R.id.text, items) {
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-
-                TextView textView = view.findViewById(R.id.text);
-
-                // 아이템 클릭 시 텍스트 색상을 검정색으로 변경합니다.
-                view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        textView.setTextColor(Color.BLACK); // 검정색으로 변경
-                        CharSequence selectedItem = adapter.getItem(position);
-                        tv_agency.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
-                        popupWindow.dismiss(); // 팝업 닫기
-                    }
-                });
-
-
-                return view;
-            }
-        };
-
+        gridView.setNumColumns(2);
         gridView.setAdapter(adapter);
-
-        // PopupWindow 준비
-        popupWindow = new PopupWindow(this);
-        popupWindow.setContentView(gridView);
-        popupWindow.setWidth(550);
-        popupWindow.setHeight(200);
-        popupWindow.setFocusable(true); // 팝업 외부 클릭시 닫히게 설정
-        popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.sign_up_popup_background));
-
         gridView.setOnItemClickListener((parent, view, position, id) -> {
             CharSequence selectedItem = adapter.getItem(position);
-            tv_agency.setText(selectedItem); // TextView를 선택된 아이템의 텍스트로 업데이트
-            popupWindow.dismiss(); // 팝업 닫기
+            tvAgency.setText(selectedItem);
+            popupWindow.dismiss();
         });
 
-        // TextView 클릭 시 PopupWindow 표시
-        tv_agency.setOnClickListener(v -> popupWindow.showAsDropDown(tv_agency));
-
-        cbRealName.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // 체크박스가 선택된 경우
-                    agencyLayout.setVisibility(View.VISIBLE);
-                } else {
-                    // 체크박스가 선택되지 않은 경우
-                    agencyLayout.setVisibility(View.GONE);
-                }
-            }
-        });
-
+        // PopupWindow 붙이기
+        popupWindow = new PopupWindow(gridView, 550, 200, true);
+        popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sign_up_popup_background));
     }
+
+    // 뷰 가시성 업데이트 ( 실명 인증 체크박스 상태에 따라 바뀜 )
+    private void updateViewVisibility(boolean isChecked) {
+        agencyLayout.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+        countryNumberLayout.setVisibility(isChecked ? View.GONE : View.VISIBLE);
+    }
+
 }
