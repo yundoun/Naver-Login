@@ -30,7 +30,8 @@ public class MainActivity extends IconBaseActivity {
         setCheckbox();
         startSignUpActivity();
     }
-    private void initializeViews (){
+
+    private void initializeViews() {
         signUpTextView = findViewById(R.id.tvSignUp);
         userName = findViewById(R.id.etUserNameInMain);
         password = findViewById(R.id.etPasswordInMain);
@@ -39,32 +40,29 @@ public class MainActivity extends IconBaseActivity {
         tvLoginState = findViewById(R.id.tvLoginState);
     }
 
-    private void initializeIcons(){
+    private void initializeIcons() {
         idIcon = ContextCompat.getDrawable(this, R.drawable.a_id);
         passwordIcon = ContextCompat.getDrawable(this, R.drawable.a_password);
-        setIconSize(userName, idIcon,20);
-        setIconSize(password,passwordIcon,20);
+        setIconSize(userName, idIcon, 20);
+        setIconSize(password, passwordIcon, 20);
     }
 
-    private void setAdapter(){
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, items);
-        adapter.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item
-        );
+    private void setAdapter() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setSelection(0); // 기본값 한국어
 
     }
 
-    private void setCheckbox(){
-        tvLoginState.setOnClickListener(view ->{
+    private void setCheckbox() {
+        tvLoginState.setOnClickListener(view -> {
             cbLoginState.setChecked(!cbLoginState.isChecked());
         });
     }
 
-    private void startSignUpActivity(){
-        signUpTextView.setOnClickListener(view ->{
+    private void startSignUpActivity() {
+        signUpTextView.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
             startActivity(intent);
         });

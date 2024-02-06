@@ -31,7 +31,7 @@ public class SignUpActivity extends IconBaseActivity {
     private Spinner countrySpinner;
     private String[] countries;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId") // android:id 에러 무시
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
