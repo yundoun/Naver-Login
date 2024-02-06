@@ -95,9 +95,11 @@ public class SignUpActivity extends IconBaseActivity {
 
         // 국가 번호 가져오기
         countries = getResources().getStringArray(R.array.countries_array);
-        countryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, countries);
+        countryAdapter = new ArrayAdapter<>(this, R.layout.sign_up_country_spinner, countries);
         countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countrySpinner.setAdapter(countryAdapter);
+
+
     }
 
     private void setupGridView(ArrayAdapter<CharSequence> adapter) { // GiredView 설정 및 PopupWindow 초기화
