@@ -9,12 +9,12 @@
 
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spLanguage"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/main_spinner"
-        app:layout_constraintBottom_toTopOf="@+id/main_logo"
+        app:layout_constraintBottom_toTopOf="@+id/ivLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,14 +22,14 @@
         app:layout_constraintVertical_bias="0.171" />
 
     <ImageView
-        android:id="@+id/main_logo"
+        android:id="@+id/ivLogo"
         android:layout_width="163dp"
         android:layout_height="30dp"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spLanguage"
         app:srcCompat="@drawable/b_logo" />
 
     <LinearLayout
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/loginLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_logo"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
         app:layout_constraintVertical_bias="1.0">
 
         <android.widget.TextView
@@ -84,13 +84,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_logo">
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo">
 
 
 
 
         <EditText
-            android:id="@+id/userName"
+            android:id="@+id/etUserNameInMain"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -109,7 +109,7 @@
             app:layout_constraintTop_toTopOf="@+id/loginLayout" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/etPasswordInMain"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
@@ -124,11 +124,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userName" />
+            app:layout_constraintTop_toBottomOf="@+id/etUserNameInMain" />
 
 
         <CheckBox
-            android:id="@+id/cb_longinState"
+            android:id="@+id/cbLonginState"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="24dp"
@@ -137,10 +137,10 @@
             android:background="@drawable/main_state_checkbox"
             android:button="@null"
             android:textSize="10sp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_loginState"
+            app:layout_constraintEnd_toStartOf="@+id/tvLoginState"
             app:layout_constraintHorizontal_bias="0.008"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordInMain" />
 
         <Switch
             android:id="@+id/ipSwitch"
@@ -151,7 +151,7 @@
             android:text="@string/main_ipSwitch"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordInMain" />
 
         <android.widget.Button
             android:id="@+id/loginBtn"
@@ -167,7 +167,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_loginState"
+            android:id="@+id/tvLoginState"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_marginTop="12dp"
@@ -178,7 +178,7 @@
             app:layout_constraintEnd_toStartOf="@+id/ipSwitch"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/keepSignCheckBox"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordInMain" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -189,13 +189,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/adImage"
+        app:layout_constraintBottom_toTopOf="@+id/imAd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginLayout">
 
         <TextView
-            android:id="@+id/findPassword"
+            android:id="@+id/tvFindPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -211,7 +211,7 @@
             app:srcCompat="@drawable/b_slash" />
 
         <TextView
-            android:id="@+id/findId"
+            android:id="@+id/tvFindId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -227,7 +227,7 @@
             app:srcCompat="@drawable/b_slash" />
 
         <TextView
-            android:id="@+id/signUp"
+            android:id="@+id/tvSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -238,7 +238,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/adImage"
+        android:id="@+id/imAd"
         android:layout_width="270dp"
         android:layout_height="82dp"
         android:layout_marginTop="55dp"
@@ -258,7 +258,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adImage">
+        app:layout_constraintTop_toBottomOf="@+id/imAd">
 
         <TextView
             android:id="@+id/op1"
@@ -330,7 +330,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/sLogo"
+            android:id="@+id/imSmallLogo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
@@ -338,7 +338,7 @@
             app:srcCompat="@drawable/b_logo" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvNaverInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"

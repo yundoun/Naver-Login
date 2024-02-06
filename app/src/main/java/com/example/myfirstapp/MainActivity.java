@@ -3,7 +3,6 @@ package com.example.myfirstapp;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,21 +24,29 @@ public class MainActivity extends IconBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signUpTextView = (TextView) findViewById(R.id.signUp);
-        userName = (EditText) findViewById(R.id.userName);
-        password = (EditText) findViewById(R.id.password);
-        spinner = findViewById(R.id.spinner);
-        idIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_id);
-        passwordIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.a_password);
-        cbLoginState = findViewById(R.id.cb_longinState);
-        tvLoginState = findViewById(R.id.tv_loginState);
+        initializeViews();
+        initializeIcons();
+        setAdapter();
+        setCheckbox();
+        startSignUpActivity();
+    }
+    private void initializeViews (){
+        signUpTextView = findViewById(R.id.tvSignUp);
+        userName = findViewById(R.id.etUserNameInMain);
+        password = findViewById(R.id.etPasswordInMain);
+        spinner = findViewById(R.id.spLanguage);
+        cbLoginState = findViewById(R.id.cbLonginState);
+        tvLoginState = findViewById(R.id.tvLoginState);
+    }
 
-        // 로그인 아이콘
+    private void initializeIcons(){
+        idIcon = ContextCompat.getDrawable(this, R.drawable.a_id);
+        passwordIcon = ContextCompat.getDrawable(this, R.drawable.a_password);
         setIconSize(userName, idIcon,20);
-        // 비밀번호 아이콘 사이즈
         setIconSize(password,passwordIcon,20);
+    }
 
-        // 스피너 아이템 추가
+    private void setAdapter(){
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(
@@ -48,21 +55,18 @@ public class MainActivity extends IconBaseActivity {
         spinner.setAdapter(adapter);
         spinner.setSelection(0); // 기본값 한국어
 
-        tvLoginState.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 체크박스의 현재 체크 상태를 반전시킵니다.
-                cbLoginState.setChecked(!cbLoginState.isChecked());
-            }
-        });
+    }
 
-        // 회원가입 창 전환
-        signUpTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
+    private void setCheckbox(){
+        tvLoginState.setOnClickListener(view ->{
+            cbLoginState.setChecked(!cbLoginState.isChecked());
+        });
+    }
+
+    private void startSignUpActivity(){
+        signUpTextView.setOnClickListener(view ->{
+            Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            startActivity(intent);
         });
     }
 }

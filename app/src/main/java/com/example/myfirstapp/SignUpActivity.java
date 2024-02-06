@@ -48,15 +48,15 @@ public class SignUpActivity extends IconBaseActivity {
     }
 
     private void initializeViews() { // 뷰 초기화 메소드 분리 1
-        id = findViewById(R.id.et_userId);
-        password = findViewById(R.id.et_password);
-        email = findViewById(R.id.et_email);
-        userName = findViewById(R.id.et_userName);
-        birth = findViewById(R.id.et_userBirth);
-        phone = findViewById(R.id.et_phone);
-        tvAgency = findViewById(R.id.tv_agency);
-        tvRealName = findViewById(R.id.tv_realName);
-        cbRealName = findViewById(R.id.cb_realName);
+        id = findViewById(R.id.etUserId);
+        password = findViewById(R.id.etPasswordInSignUp);
+        email = findViewById(R.id.etEmail);
+        userName = findViewById(R.id.etUserNameInSignUp);
+        birth = findViewById(R.id.etUserBirth);
+        phone = findViewById(R.id.etPhone);
+        tvAgency = findViewById(R.id.tvAgency);
+        tvRealName = findViewById(R.id.tvRealName);
+        cbRealName = findViewById(R.id.cbRealName);
         agencyLayout = findViewById(R.id.agencyLayout);
         countryNumberLayout = findViewById(R.id.countryNumberLayout);
         countrySpinner = findViewById(R.id.countryNumberSpinner);
