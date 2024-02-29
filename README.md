@@ -40,5 +40,4 @@ Activity 간 전환을 위한 명시적 인텐트를 활용했습니다.
 
 ### 결과물
 
-<img src="image/Naver_1.jpg" width="300" height="600">
-<img src="image/Naver_2.jpg" width="300" height="600">
+<img src="image/Naver_1.jpg" width="300" height="600"><img src="image/Naver_2.jpg" width="300" height="600">
