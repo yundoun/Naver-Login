@@ -1,10 +1,4 @@
-# 네이버 따라 만들기
-
-## Android Studio와 친해지기
-
-Project 생성 및 directory 구조에 대해 학습했습니다.
-
-<br>
+# 네이버 로그인 화면 구현
 
 ## Activity와 Activity LifeCycle
 
